@@ -1,0 +1,8 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.addExports": [
+        "javax.swing",
+        "java.awt",
+        "lombok"
+        ]
+}
