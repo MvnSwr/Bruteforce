@@ -1,1 +1,1 @@
-## This is for educational puporse only
+## This is for educational purpose only
