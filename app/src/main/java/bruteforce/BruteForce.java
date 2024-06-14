@@ -13,21 +13,20 @@ public class BruteForce {
             pw.crack[pw.getCracklength() - 1]++;
             for (count = 0; count < pw.getPasswordlength(); count++) {
 
-                // Bedingung sobald ein char überlauft 58 über "9"
+                // condition if char goes over 58 / "9"
                 if (pw.crack[pw.getCracklength() - count - 1] == 58) {
                     pw.crack[pw.getCracklength() - count - 1] = 65;
                 }
 
-                // Bedingung sobald ein char überlauft 91 über "Z"
+                // condition if chat goes over 91 / "Z"
                 if (pw.crack[pw.getCracklength() - count - 1] == 91) {
                     pw.crack[pw.getCracklength() - count - 1] = 97;
                 }
 
-                // Bedinung sobald ein char überlauft 123 über "z" (Damit über letzten Char)
+                // condition if char goes over 123 / "z" (over the last char)
                 if (pw.crack[pw.getCracklength() - count - 1] == 123) {
 
-                    // Sind wir hier beim Array an der Stelle 0 und bei dem letzten Zeichen
-                    // angekommen? Abbruchbedingung!!
+                    // if position of array is 0 and on the last char? exit code
                     if (pw.getCracklength() - count - 1 == 0 && pw.crack[pw.getCracklength() - count - 1] == 123) {
                         System.out.println("Passwort leider nicht gefunden");
                         System.exit(0);
@@ -35,7 +34,7 @@ public class BruteForce {
 
                     pw.crack[pw.getCracklength() - count - 1] = 48;
 
-                    // Prueft, ob die Stelle vorher bereits initialisiert wurde, oder nicht
+                    // checks if position is initialized
                     if (pw.crack[pw.getCracklength() - count - 2] < 48) {
                         pw.crack[pw.getCracklength() - count - 2] = 48;
                         pw.setPasswordlength(pw.getPasswordlength() + 1);
@@ -56,7 +55,7 @@ public class BruteForce {
                 System.out.println("Fehler");
                 System.exit(1);
             }
-            // System.out.println(crackStr); Performanceverlust
+            // System.out.println(crackStr); lack of performance
 
         } while (!password.equals(pw.getCrackStr()));
 
